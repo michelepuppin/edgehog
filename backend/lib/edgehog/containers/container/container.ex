@@ -84,7 +84,8 @@ defmodule Edgehog.Containers.Container do
         :read_only_rootfs,
         :tmpfs,
         :binds,
-        :image_id
+        :image_id,
+        :cdi_devices
       ]
     ]
 
@@ -112,7 +113,8 @@ defmodule Edgehog.Containers.Container do
         :storage_opt,
         :read_only_rootfs,
         :tmpfs,
-        :binds
+        :binds,
+        :cdi_devices
       ]
 
       argument :image, :map
@@ -168,7 +170,8 @@ defmodule Edgehog.Containers.Container do
         :read_only_rootfs,
         :tmpfs,
         :binds,
-        :image_id
+        :image_id,
+        :cdi_devices
       ]
 
       argument :volumes, {:array, :map}
@@ -334,6 +337,12 @@ defmodule Edgehog.Containers.Container do
     end
 
     attribute :binds, {:array, :string} do
+      default []
+      public? true
+      allow_nil? false
+    end
+
+    attribute :cdi_devices, {:array, :string} do
       default []
       public? true
       allow_nil? false

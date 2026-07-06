@@ -227,6 +227,10 @@ const messages = defineMessages({
     id: "components.ContainerDetails.noDeviceMappings",
     defaultMessage: "No device mappings assigned.",
   },
+  cdiDevices: {
+    id: "components.ContainerDetails.cdiDevicesLabel",
+    defaultMessage: "CDI Devices",
+  },
 });
 
 const CONTAINER_DETAILS_FRAGMENT = graphql`
@@ -258,6 +262,7 @@ const CONTAINER_DETAILS_FRAGMENT = graphql`
     capAdd
     capDrop
     volumeDriver
+    cdiDevices
     image {
       reference
       credentials {
@@ -793,6 +798,11 @@ const DeviceMappingsSection = ({
       open={open}
       onToggle={onToggle}
     >
+      <StringArrayField
+        id="cdiDevices"
+        label={messages.cdiDevices}
+        value={data.cdiDevices}
+      />
       <DeviceMappingDetails deviceMappings={data.deviceMappings} />
     </Section>
   );

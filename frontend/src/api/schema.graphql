@@ -3795,6 +3795,7 @@ input CreateContainerInput {
   readOnlyRootfs: Boolean
   tmpfs: [String!]
   binds: [String!]
+  cdiDevices: [String!]
   image: ContainerCreateWithNestedImageInput
   networks: [ContainerCreateWithNestedNetworksInput!]
   volumes: [ContainerCreateWithNestedVolumesInput!]
@@ -4142,6 +4143,7 @@ type Container implements Node {
   readOnlyRootfs: Boolean!
   tmpfs: [String!]!
   binds: [String!]!
+  cdiDevices: [String!]!
   imageId: ID!
   image: Image!
   releases(

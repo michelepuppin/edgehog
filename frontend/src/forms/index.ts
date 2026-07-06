@@ -362,6 +362,19 @@ const fieldExplanations = defineMessages({
     defaultMessage:
       '[("pathOnHost":"/dev/sda1","pathInContainer":"/dev/storage","cGroupPermissions":"mrw")]',
   },
+  cdiDevicesTitle: {
+    id: "forms.fieldExplanation.cdiDevices.title",
+    defaultMessage: "CDI Devices",
+  },
+  cdiDevicesDescription: {
+    id: "forms.fieldExplanation.cdiDevices.description",
+    defaultMessage:
+      "Container Device Interface (CDI) devices to expose to the container.",
+  },
+  cdiDevicesExample: {
+    id: "forms.fieldExplanation.cdiDevices.example",
+    defaultMessage: '"vendor.com/device=mydevice"',
+  },
 });
 
 export { fieldExplanations };

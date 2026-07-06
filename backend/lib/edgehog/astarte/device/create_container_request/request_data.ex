@@ -49,7 +49,8 @@ defmodule Edgehog.Astarte.Device.CreateContainerRequest.RequestData do
     :storageOpt,
     :readOnlyRootfs,
     :tmpfs,
-    :privileged
+    :privileged,
+    :cdiDevices
   ]
 
   @type t() :: %__MODULE__{
@@ -80,6 +81,7 @@ defmodule Edgehog.Astarte.Device.CreateContainerRequest.RequestData do
           storageOpt: list(String.t()),
           readOnlyRootfs: boolean(),
           tmpfs: list(String.t()),
-          privileged: String.t()
+          privileged: String.t(),
+          cdiDevices: list(String.t())
         }
 end

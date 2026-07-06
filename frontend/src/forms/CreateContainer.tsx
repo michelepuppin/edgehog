@@ -1025,7 +1025,7 @@ const DeviceMappingsSection = ({ form, open, onToggle }: BaseSectionProps) => {
       label={messages.deviceMappingsLabel}
     >
       <FormRow
-        id={`deviceMappings`}
+        id="deviceMappings"
         label={
           <FormattedMessage
             id="forms.CreateContainer.deviceMappingsLabel"
@@ -1040,6 +1040,40 @@ const DeviceMappingsSection = ({ form, open, onToggle }: BaseSectionProps) => {
               readOnlyProps={null}
             />
           </div>
+        </FieldHelp>
+      </FormRow>
+
+      <FormRow
+        id="cdiDevices"
+        label={
+          <FormattedMessage
+            id="forms.CreateContainer.cdiDevicesLabel"
+            defaultMessage="CDI Devices"
+          />
+        }
+      >
+        <FieldHelp id="cdiDevices" itemsAlignment="center">
+          <Controller
+            control={control}
+            name="cdiDevices"
+            render={({ field }) => (
+              <StringArrayFormInput
+                value={field.value || []}
+                onChange={field.onChange}
+                errors={
+                  Array.isArray(errors.cdiDevices)
+                    ? errors.cdiDevices
+                    : undefined
+                }
+                addButtonLabel={
+                  <FormattedMessage
+                    id="forms.CreateContainer.addCdiDeviceButton"
+                    defaultMessage="Add CDI Device"
+                  />
+                }
+              />
+            )}
+          />
         </FieldHelp>
       </FormRow>
     </Section>

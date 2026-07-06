@@ -1052,6 +1052,8 @@ const deviceMappingsSchema = z.array(
   }),
 );
 
+const cdiDevicesSchema = z.array(z.string().min(1));
+
 const containerSchema = z
   .object({
     name: z.string().min(1),
@@ -1081,6 +1083,7 @@ const containerSchema = z
     restartPolicy: nullableTrimString.optional(),
     env: envSchema.optional(),
     deviceMappings: deviceMappingsSchema.optional(),
+    cdiDevices: cdiDevicesSchema.optional(),
   })
   .superRefine((container, ctx) => {
     const cpuPeriod = container.cpuPeriod;
